@@ -36,7 +36,7 @@ function App() {
 			</Route>
 
 			<Route exact path="/cocktail">
-				<Cocktail />
+				<Cocktail cocktail={randomCocktail} />
 			</Route>
 
 			<Route exact path="/quiz">
