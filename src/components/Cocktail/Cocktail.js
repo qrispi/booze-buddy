@@ -20,22 +20,24 @@ function Cocktail({cocktail}) {
     }
 
   return (
-    <div>
+    <>
         <NavLink to="/">
             <p>LOGO - HOME</p>
         </NavLink>
-        <h2>{cocktail.strDrink}</h2>
-        <img className="drink-img" src={cocktail.strDrinkThumb}/>
-        <h3>Directions:</h3>
-        <p>{cocktail.strInstructions}</p>
-        <h3>Ingredients:</h3>
-        <ul>
-            {listIngredients()}
-        </ul>
-        <h3>Glassware:</h3>
-        <p>{cocktail.strGlass}</p>
-        <button>Spin Again</button>
-    </div>
+        <div className='cocktail-view'>
+            <h2>{cocktail.strDrink}</h2>
+            <img className="drink-img" src={cocktail.strDrinkThumb}/>
+            <h3>Directions:</h3>
+            <p>{cocktail.strInstructions}</p>
+            <h3>Ingredients:</h3>
+            <ul>
+                {listIngredients()}
+            </ul>
+            <h3>Glassware:</h3>
+            <p>{cocktail.strGlass}</p>
+            <button>Spin Again</button>
+        </div>
+    </>
   );
 }
 
