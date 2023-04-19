@@ -14,7 +14,12 @@ function Cocktail({cocktail}) {
         }, [])
     }
 
-    
+    const listIngredients = () => {
+        const ingredients = formatIngredients();
+        return ingredients.map(ingredient => <li>{ingredient}</li>)
+    }
+
+    console.log(cocktail)
 
   return (
     <div>
@@ -23,7 +28,12 @@ function Cocktail({cocktail}) {
         </NavLink>
         <h2>{cocktail.strDrink}</h2>
         <img className="drink-img" src={cocktail.strDrinkThumb}/>
+        <h3>Directions:</h3>
         <p>{cocktail.strInstructions}</p>
+        <h3>Ingredients:</h3>
+        <ul>
+            {listIngredients()}
+        </ul>
         <button>Spin Again</button>
     </div>
   );
