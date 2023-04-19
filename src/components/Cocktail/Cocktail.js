@@ -19,8 +19,6 @@ function Cocktail({cocktail}) {
         return ingredients.map(ingredient => <li>{ingredient}</li>)
     }
 
-    console.log(cocktail)
-
   return (
     <div>
         <NavLink to="/">
@@ -34,6 +32,8 @@ function Cocktail({cocktail}) {
         <ul>
             {listIngredients()}
         </ul>
+        <h3>Glassware:</h3>
+        <p>{cocktail.strGlass}</p>
         <button>Spin Again</button>
     </div>
   );
