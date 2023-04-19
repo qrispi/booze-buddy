@@ -1,9 +1,14 @@
 import './Cocktail.css';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Cocktail() {
   return (
     <div>
-      <h1>Im a cocktail</h1>
+        <NavLink to="/">
+            <p>LOGO - HOME</p>
+        </NavLink>
+        <h2>Im a cocktail</h2>
+        <button>Spin Again</button>
     </div>
   );
 }
