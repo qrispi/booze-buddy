@@ -12,7 +12,6 @@ function Cocktail() {
 		const promise = getCocktails('random.php');
         promise.then(data => {
             if (typeof data === 'string' || data instanceof String) {
-                console.log(data)
                 setError(data);
             } else {
                 setCocktail(data.drinks[0]);
