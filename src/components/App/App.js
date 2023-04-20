@@ -2,8 +2,10 @@ import './App.css';
 import Cocktail from '../Cocktail/Cocktail';
 import Quiz from '../Quiz/Quiz';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { useState, useEffect } from 'react';
 
 function App() {
+
   return (
 	<div>
 		<Switch>
