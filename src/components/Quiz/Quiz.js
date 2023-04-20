@@ -44,12 +44,25 @@ function Quiz() {
         <NavLink to="/">
             <p>LOGO - HOME</p>
         </NavLink>
-        <h2>Pick A Spirit</h2>
-        {makeButtons(spirits)}
-        <h2>Pick An Ingredient</h2>
-        {makeButtons(ingredients)}
-        <h2>Pick A Glass</h2>
-        {makeButtons(glassware)}
+        {questionNum === 0 && 
+            <>
+                <h2>Pick A Spirit</h2>
+                {makeButtons(spirits)}
+            </>
+        }
+        {questionNum === 1 && 
+        <>
+            <h2>Pick An Ingredient</h2>
+            {makeButtons(ingredients)}
+        </>
+        }
+        {questionNum === 2 && 
+        <>
+            <h2>Pick A Glass</h2>
+            {makeButtons(glassware)}
+        </>
+        }
+
     </div>
     );
 }
