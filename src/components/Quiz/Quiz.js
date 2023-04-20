@@ -7,10 +7,14 @@ function Quiz() {
     const glassware = ['rocks', 'flute', 'hurricane', 'coupe', 'highball', 'shot', 'wine', 'martini']
 
     const makeButtons = (category) => {
-        return category.map(item => <button>{item}</button>)
+        return category.map((item, index) => <button name={item} onClick={(event) => fetchSelection(event.target.name)} key={index}>{item}</button>)
     }
 
-  return (
+    const fetchSelection = (selection) => {
+        console.log(selection)
+    }
+
+    return (
     <div>
         <NavLink to="/">
             <p>LOGO - HOME</p>
@@ -22,7 +26,7 @@ function Quiz() {
         <h2>Pick A Glass</h2>
         {makeButtons(glassware)}
     </div>
-  );
+    );
 }
 
 export default Quiz;
