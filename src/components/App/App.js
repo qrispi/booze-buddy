@@ -5,22 +5,6 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom/cjs/react-rou
 import { useState, useEffect } from 'react';
 
 function App() {
-	const [randomCocktail, setRandomCocktail] = useState({});
-	const [randomError, setRandomError] = useState('');
-
-	const getRandomCocktail = async () => {
-		try {
-			const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
-			const data = await response.json();
-			setRandomCocktail(data.drinks[0]);
-		} catch (error) {
-			setRandomError(error.message);
-		}
-	}
-
-	useEffect(() => {
-		getRandomCocktail()
-	}, [])
 
   return (
 	<div>
@@ -36,7 +20,7 @@ function App() {
 			</Route>
 
 			<Route exact path="/cocktail">
-				<Cocktail cocktail={randomCocktail} />
+				<Cocktail />
 			</Route>
 
 			<Route exact path="/quiz">
