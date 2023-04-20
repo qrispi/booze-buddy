@@ -1,20 +1,23 @@
 import './Cocktail.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { useState, useEffect } from 'react';
+import getCocktails from '../../api-calls';
 
 function Cocktail() {
 
     const [cocktail, setCocktail] = useState({});
-	const [randomError, setError] = useState('');
+	const [error, setError] = useState('');
 
-	const getRandomCocktail = async () => {
-		try {
-			const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
-			const data = await response.json();
-			setCocktail(data.drinks[0]);
-		} catch (error) {
-			setError(error.message);
-		}
+	const getRandomCocktail = () => {
+		const promise = getCocktails('random.php');
+        promise.then(data => {
+            if (typeof data === 'string' || data instanceof String) {
+                console.log(data)
+                setError(data);
+            } else {
+                setCocktail(data.drinks[0]);
+            }
+        });
 	}
 
 	useEffect(() => {
