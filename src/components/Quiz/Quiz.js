@@ -21,22 +21,40 @@ function Quiz() {
         let path;
         if(questionNum < 2) {
             path = 'filter.php?i=' + selection
-            setQuestionNum(questionNum + 1);
-            console.log(questionNum)
         } else {
             path = 'filter.php?g=' + selection
-            setQuestionNum(0);
         }
         const promise = getCocktails(path);
         promise.then(data => {
             if (typeof data === 'string' || data instanceof String) {
-                console.log(data)
                 setQuizError(data);
             } else {
                 console.log(data.drinks)
-                // setCocktail(data.drinks);
+                filterCocktails(data.drinks);
             }
         });
+    }
+
+    const filterCocktails = (cocktails) => {
+        if(questionNum === 0) {
+            setCocktailResults(cocktails);
+        } else {
+            const filtered = cocktailResults.reduce((array, cV) => {
+                cocktails.forEach(cocktail => {
+                    if(cocktail.idDrink === cV.idDrink) {
+                        array.push(cocktail);
+                    }
+                });
+                return array;
+            }, []);
+            console.log(filtered)
+            setCocktailResults(filtered);
+        }
+        if(questionNum < 2) {
+            setQuestionNum(questionNum + 1);
+        } else {
+            setQuestionNum(0);
+        }
     }
 
     return (
@@ -62,7 +80,6 @@ function Quiz() {
             {makeButtons(glassware)}
         </>
         }
-
     </div>
     );
 }
