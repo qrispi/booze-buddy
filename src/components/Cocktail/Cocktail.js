@@ -27,11 +27,14 @@ function Cocktail() {
 
   return (
     <>
-        <NavLink className='heading' to="/">
-            <div className='logo'>
-                <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
-            </div>
-        </NavLink>
+        <header>
+            <NavLink className='heading' to="/">
+                <div className='logo'>
+                    <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+                </div>
+            </NavLink>
+            <button onClick={getRandomCocktail}>Spin Again!</button>
+        </header>
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2 className='heading'>{cocktail.strDrink}</h2>
@@ -48,7 +51,6 @@ function Cocktail() {
                 <p className='text-body'>{cocktail.strGlass}</p>
             </div>
         </div>
-        <button onClick={getRandomCocktail}>Spin Again</button>
     </>
   );
 }
