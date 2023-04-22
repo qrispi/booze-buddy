@@ -69,11 +69,16 @@ function Quiz() {
 
     return (
         <>
-            <NavLink className='no-style' to="/">
-                <div className='logo'>
-                    <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
-                </div>
-            </NavLink>
+            <header>
+                <NavLink className='no-style' to="/">
+                    <div className='logo'>
+                        <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+                    </div>
+                </NavLink>
+                {questionNum === 4 && 
+                    <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
+                }      
+            </header>
             {questionNum === 0 && 
             <>
                 <h2>Pick Your Poison</h2>

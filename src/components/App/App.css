@@ -54,3 +54,11 @@ p, li {
     padding: 10px 20px;
     font-size: 3rem;
 }
+
+header {
+    padding: 2vh;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
