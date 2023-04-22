@@ -12,13 +12,13 @@ function App() {
 			<Route exact path="/">
 				<section className='home'>
 					<div className='logo'>
-						<h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+						<h1>Booze</h1> <img className="logo-img gradient-text" src={martiniImg} /> <h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
-						<button>Surprise Me</button>
+						<button className='big-button'>Surprise Me!</button>
 					</NavLink>
 					<NavLink to="/quiz">
-						<button>Guide Me</button>
+						<button className='big-button'>Guide Me!</button>
 					</NavLink>
 				</section>
 			</Route>

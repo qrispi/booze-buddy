@@ -33,8 +33,21 @@ main {
 
 button {
     font-family: 'Bangers', cursive;
+    border-radius: 5px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
 }
 
 .text-body {
     font-family: 'Fredoka', sans-serif;
+}
+
+.big-button {
+    padding: 10px 20px;
+    font-size: 3rem;
 }
