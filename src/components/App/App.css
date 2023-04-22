@@ -1,15 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@300&display=swap');
 
 main {
-    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
 
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    justify-content: space-around;
+}
+
+.logo {
+    font-family: 'Bangers', cursive;
+    display: flex;
+    font-size: 5vh;
+}
+
 .logo-img {
-    height: 10vh;
+    height: 20vh;
+    margin: 0 2vw;
 }
 
 .heading {

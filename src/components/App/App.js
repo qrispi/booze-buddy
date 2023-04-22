@@ -10,13 +10,17 @@ function App() {
 	<main>
 		<Switch>
 			<Route exact path="/">
-				<h1 className='heading'>Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
-				<NavLink to="/cocktail">
-					<button>Surprise Me</button>
-				</NavLink>
-				<NavLink to="/quiz">
-					<button>Guide Me</button>
-				</NavLink>
+				<section className='home'>
+					<div className='logo'>
+						<h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+					</div>
+					<NavLink to="/cocktail">
+						<button>Surprise Me</button>
+					</NavLink>
+					<NavLink to="/quiz">
+						<button>Guide Me</button>
+					</NavLink>
+				</section>
 			</Route>
 
 			<Route exact path="/cocktail">

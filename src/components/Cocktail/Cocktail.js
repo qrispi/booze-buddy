@@ -28,7 +28,9 @@ function Cocktail() {
   return (
     <>
         <NavLink className='heading' to="/">
-            <h1>Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
+            <div className='logo'>
+                <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+            </div>
         </NavLink>
         <div className='cocktail-view'>
             <h2 className='heading'>{cocktail.strDrink}</h2>
