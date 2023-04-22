@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { useState, useEffect } from 'react';
 import getCocktails from '../../api-calls';
 import listIngredients from '../../helper-functions';
+import martiniImg from '../../images/martini.png'
 
 function Cocktail() {
 
@@ -26,8 +27,8 @@ function Cocktail() {
 
   return (
     <>
-        <NavLink to="/">
-            <p>LOGO - HOME</p>
+        <NavLink className='heading' to="/">
+            <h1>Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
         </NavLink>
         <div className='cocktail-view'>
             <h2 className='heading'>{cocktail.strDrink}</h2>

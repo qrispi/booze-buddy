@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import getCocktails from '../../api-calls';
 import { useState } from 'react';
 import listIngredients from '../../helper-functions';
+import martiniImg from '../../images/martini.png'
 
 function Quiz() {
 
@@ -67,13 +68,13 @@ function Quiz() {
     }
 
     return (
-        <div>
-            <NavLink to="/">
-                <p>LOGO - HOME</p>
+        <>
+            <NavLink className='heading' to="/">
+                <h1 >Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
             </NavLink>
             {questionNum === 0 && 
             <>
-                <h2>Pick A Spirit</h2>
+                <h2>Pick Your Poison</h2>
                 {makeButtons(spirits)}
             </>
             }
@@ -111,7 +112,7 @@ function Quiz() {
                 <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
             </div>
             }      
-        </div>
+        </>
     );
 }
 

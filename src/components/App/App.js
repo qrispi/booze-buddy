@@ -7,7 +7,7 @@ import martiniImg from '../../images/martini.png'
 function App() {
 
   return (
-	<div>
+	<main>
 		<Switch>
 			<Route exact path="/">
 				<h1 className='heading'>Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
@@ -31,7 +31,7 @@ function App() {
 				<Redirect from="*" to="/" />
 			</Route>
 		</Switch>
-	</div>
+	</main>
   );
 }
 
