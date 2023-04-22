@@ -2,6 +2,7 @@ import './Cocktail.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { useState, useEffect } from 'react';
 import getCocktails from '../../api-calls';
+import listIngredients from '../../helper-functions';
 
 function Cocktail() {
 
@@ -23,22 +24,6 @@ function Cocktail() {
 		getRandomCocktail();
 	}, [])
 
-    const formatIngredients = () => {
-        const allKeys = Object.keys(cocktail);
-        const keys = allKeys.filter(key => key.includes('Ingredient'));
-        return keys.reduce((acc, key, index) => {
-            if(cocktail[key]) {
-                acc.push(cocktail['strMeasure' + (index + 1)] + cocktail[key]);
-            }
-            return acc;
-        }, []);
-    }
-
-    const listIngredients = () => {
-        const ingredients = formatIngredients();
-        return ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>);
-    }
-
   return (
     <>
         <NavLink to="/">
@@ -51,7 +36,7 @@ function Cocktail() {
             <p>{cocktail.strInstructions}</p>
             <h3>Ingredients:</h3>
             <ul>
-                {listIngredients()}
+                {listIngredients(cocktail)}
             </ul>
             <h3>Glassware:</h3>
             <p>{cocktail.strGlass}</p>
