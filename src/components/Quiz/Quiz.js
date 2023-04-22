@@ -22,16 +22,15 @@ function Quiz() {
     const fetchSelection = (selection) => {
         let path;
         if(questionNum < 2) {
-            path = 'filter.php?i=' + selection
+            path = 'filter.php?i=' + selection;
         } else {
-            path = 'filter.php?g=' + selection
+            path = 'filter.php?g=' + selection;
         }
         const promise = getCocktails(path);
         promise.then(data => {
             if (typeof data === 'string' || data instanceof String) {
                 setQuizError(data);
             } else {
-                console.log(data.drinks)
                 filterCocktails(data.drinks);
             }
         });
@@ -49,7 +48,6 @@ function Quiz() {
                 });
                 return array;
             }, []);
-            console.log(filtered)
             setCocktailResults(filtered);
         }
         setQuestionNum(questionNum + 1);
@@ -57,13 +55,11 @@ function Quiz() {
 
     const pickRandom = () => {
         const index = Math.floor(Math.random() * cocktailResults.length);
-        console.log(cocktailResults[index])
         const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
         promise.then(data => {
             if (typeof data === 'string' || data instanceof String) {
                 setQuizError(data);
             } else {
-                console.log(data.drinks[0])
                 setCocktail(data.drinks[0]);
             }
         });
