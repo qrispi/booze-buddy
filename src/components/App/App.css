@@ -36,6 +36,8 @@ button {
     border-radius: 5px;
     border: 3px solid black;
     cursor: pointer;
+    padding: 10px 20px;
+    font-size: 3rem;
 }
 
 button:hover {
