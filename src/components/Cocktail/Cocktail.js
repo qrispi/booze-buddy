@@ -33,13 +33,13 @@ function Cocktail() {
             <h2 className='heading'>{cocktail.strDrink}</h2>
             <img className="drink-img" src={cocktail.strDrinkThumb} />
             <h3 className='heading'>Directions:</h3>
-            <p>{cocktail.strInstructions}</p>
+            <p className='text-body'>{cocktail.strInstructions}</p>
             <h3 className='heading'>Ingredients:</h3>
-            <ul>
+            <ul className='text-body'>
                 {listIngredients(cocktail)}
             </ul>
             <h3 className='heading'>Glassware:</h3>
-            <p>{cocktail.strGlass}</p>
+            <p className='text-body'>{cocktail.strGlass}</p>
             <button onClick={getRandomCocktail}>Spin Again</button>
         </div>
     </>
