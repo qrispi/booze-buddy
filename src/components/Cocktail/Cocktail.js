@@ -30,15 +30,15 @@ function Cocktail() {
             <p>LOGO - HOME</p>
         </NavLink>
         <div className='cocktail-view'>
-            <h2>{cocktail.strDrink}</h2>
+            <h2 className='heading'>{cocktail.strDrink}</h2>
             <img className="drink-img" src={cocktail.strDrinkThumb} />
-            <h3>Directions:</h3>
+            <h3 className='heading'>Directions:</h3>
             <p>{cocktail.strInstructions}</p>
-            <h3>Ingredients:</h3>
+            <h3 className='heading'>Ingredients:</h3>
             <ul>
                 {listIngredients(cocktail)}
             </ul>
-            <h3>Glassware:</h3>
+            <h3 className='heading'>Glassware:</h3>
             <p>{cocktail.strGlass}</p>
             <button onClick={getRandomCocktail}>Spin Again</button>
         </div>

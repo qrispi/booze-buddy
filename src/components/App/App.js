@@ -10,7 +10,7 @@ function App() {
 	<div>
 		<Switch>
 			<Route exact path="/">
-				<h1>Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
+				<h1 className='heading'>Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
 				<NavLink to="/cocktail">
 					<button>Surprise Me</button>
 				</NavLink>
@@ -28,7 +28,6 @@ function App() {
 			</Route>
 
 			<Route path="*">
-				<h2>ANY PATH</h2>
 				<Redirect from="*" to="/" />
 			</Route>
 		</Switch>
