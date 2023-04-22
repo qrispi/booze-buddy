@@ -93,8 +93,11 @@ function Quiz() {
             </>
             }
 
-            <br></br>
-            <button onClick={() => pickRandom()}>Show Me</button>
+            {questionNum === 3 && 
+            <>
+                <button onClick={() => pickRandom()}>See Results</button>
+            </>
+            }
 
             {questionNum === 4 && 
             <div className='cocktail-view'>
