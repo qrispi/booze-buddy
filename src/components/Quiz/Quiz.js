@@ -100,7 +100,7 @@ function Quiz() {
                 }
                 {questionNum === 3 && 
                 <>
-                    <button onClick={() => pickRandom()}>See Results</button>
+                    <button className='results-button' onClick={() => pickRandom()}>See Results</button>
                 </>
                 }
             </section>

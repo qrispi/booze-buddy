@@ -8,3 +8,8 @@
 .quiz-button {
     margin: 3vh 3vw;
 }
+
+.results-button {
+    margin-top: 25vh;
+    font-size: 6rem;
+}
