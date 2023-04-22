@@ -1,0 +1,10 @@
+.quiz-buttons {
+    flex-wrap: wrap;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+.quiz-button {
+    margin: 3vh 3vw;
+}

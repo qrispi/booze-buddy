@@ -17,7 +17,7 @@ function Quiz() {
     const glassware = ['Cocktail_glass', 'Champagne_flute', 'Hurricane_glass', 'Whiskey_sour_glass', 'Highball_glass', 'Shot_glass', 'Collins_glass', 'Martini_glass'];
 
     const makeButtons = (category) => {
-        return category.map((item, index) => <button name={item} onClick={(event) => fetchSelection(event.target.name)} key={index}>{item}</button>);
+        return category.map((item, index) => <button className='quiz-button' name={item} onClick={(event) => fetchSelection(event.target.name)} key={index}>{item}</button>);
     }
 
     const fetchSelection = (selection) => {
@@ -79,31 +79,31 @@ function Quiz() {
                     <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
                 }      
             </header>
-            {questionNum === 0 && 
-            <>
-                <h2>Pick Your Poison</h2>
-                {makeButtons(spirits)}
-            </>
-            }
-            {questionNum === 1 && 
-            <>
-                <h2>Pick An Ingredient</h2>
-                {makeButtons(ingredients)}
-            </>
-            }
-            {questionNum === 2 && 
-            <>
-                <h2>Pick A Glass</h2>
-                {makeButtons(glassware)}
-            </>
-            }
-
-            {questionNum === 3 && 
-            <>
-                <button onClick={() => pickRandom()}>See Results</button>
-            </>
-            }
-
+            <section className='quiz-buttons'>
+                {questionNum === 0 && 
+                <>
+                    <h2>Pick Your Poison</h2>
+                    {makeButtons(spirits)}
+                </>
+                }
+                {questionNum === 1 && 
+                <>
+                    <h2>Pick An Ingredient</h2>
+                    {makeButtons(ingredients)}
+                </>
+                }
+                {questionNum === 2 && 
+                <>
+                    <h2>Pick A Glass</h2>
+                    {makeButtons(glassware)}
+                </>
+                }
+                {questionNum === 3 && 
+                <>
+                    <button onClick={() => pickRandom()}>See Results</button>
+                </>
+                }
+            </section>
             {questionNum === 4 && 
             <div className='cocktail-view'>
                 <h2>{cocktail.strDrink}</h2>
