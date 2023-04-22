@@ -15,7 +15,6 @@ main {
 }
 
 .logo {
-    font-family: 'Bangers', cursive;
     display: flex;
     font-size: 5vh;
 }
@@ -25,14 +24,16 @@ main {
     margin: 0 2vw;
 }
 
-.heading {
-    font-family: 'Bangers', cursive;
+.no-style {
     text-decoration: none;
     color: black;
 }
 
-button {
+h1, h2, h3, button {
     font-family: 'Bangers', cursive;
+}
+
+button {
     border-radius: 5px;
     border: 3px solid black;
     cursor: pointer;
@@ -45,7 +46,7 @@ button:hover {
     color: white;
 }
 
-.text-body {
+p, li {
     font-family: 'Fredoka', sans-serif;
 }
 

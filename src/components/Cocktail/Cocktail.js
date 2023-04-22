@@ -28,7 +28,7 @@ function Cocktail() {
   return (
     <>
         <header>
-            <NavLink className='heading' to="/">
+            <NavLink className='no-style' to="/">
                 <div className='logo'>
                     <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
                 </div>
@@ -42,13 +42,13 @@ function Cocktail() {
             </div>
             <div className='split-container list-container'>
                 <h3 className='heading'>Directions:</h3>
-                <p className='text-body'>{cocktail.strInstructions}</p>
+                <p>{cocktail.strInstructions}</p>
                 <h3 className='heading'>Ingredients:</h3>
-                <ul className='text-body'>
+                <ul>
                     {listIngredients(cocktail)}
                 </ul>
                 <h3 className='heading'>Glassware:</h3>
-                <p className='text-body'>{cocktail.strGlass}</p>
+                <p>{cocktail.strGlass}</p>
             </div>
         </div>
     </>

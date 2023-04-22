@@ -69,8 +69,10 @@ function Quiz() {
 
     return (
         <>
-            <NavLink className='heading' to="/">
-                <h1 >Booze<img className="logo-img" src={martiniImg} />Buddy</h1>
+            <NavLink className='no-style' to="/">
+                <div className='logo'>
+                    <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+                </div>
             </NavLink>
             {questionNum === 0 && 
             <>
