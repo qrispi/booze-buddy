@@ -8,13 +8,14 @@ function Quiz() {
     const [cocktailResults, setCocktailResults] = useState([]);
     const [questionNum, setQuestionNum] = useState(0);
     const [quizError, setQuizError] = useState('');
+    const [cocktail, setCocktail] = useState({});
 
-    const spirits = ['Vodka', 'Gin', 'Rum', 'Bourbon', 'Tequila', 'Scotch']
-    const ingredients = ['Lime', 'Lemon', 'Coffee', 'Cranberry_juice', 'Orange_juice', 'Grapefruit_juice', 'Bitters', 'Ginger']
-    const glassware = ['Cocktail_glass', 'Champagne_flute', 'Hurricane_glass', 'Whiskey_sour_glass', 'Highball_glass', 'Shot_glass', 'Collins_glass', 'Martini_glass']
+    const spirits = ['Vodka', 'Gin', 'Rum', 'Bourbon', 'Tequila', 'Scotch'];
+    const ingredients = ['Lime', 'Lemon', 'Coffee', 'Cranberry_juice', 'Orange_juice', 'Grapefruit_juice', 'Bitters', 'Ginger'];
+    const glassware = ['Cocktail_glass', 'Champagne_flute', 'Hurricane_glass', 'Whiskey_sour_glass', 'Highball_glass', 'Shot_glass', 'Collins_glass', 'Martini_glass'];
 
     const makeButtons = (category) => {
-        return category.map((item, index) => <button name={item} onClick={(event) => fetchSelection(event.target.name)} key={index}>{item}</button>)
+        return category.map((item, index) => <button name={item} onClick={(event) => fetchSelection(event.target.name)} key={index}>{item}</button>);
     }
 
     const fetchSelection = (selection) => {
@@ -50,37 +51,67 @@ function Quiz() {
             console.log(filtered)
             setCocktailResults(filtered);
         }
-        if(questionNum < 2) {
-            setQuestionNum(questionNum + 1);
-        } else {
-            setQuestionNum(0);
-        }
+        setQuestionNum(questionNum + 1);
+    }
+
+    const pickRandom = () => {
+        const index = Math.floor(Math.random() * cocktailResults.length);
+        console.log(cocktailResults[index])
+        const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
+        promise.then(data => {
+            if (typeof data === 'string' || data instanceof String) {
+                setQuizError(data);
+            } else {
+                console.log(data.drinks[0])
+                setCocktail(data.drinks[0]);
+            }
+        });
+        setQuestionNum(questionNum + 1);
     }
 
     return (
-    <div>
-        <NavLink to="/">
-            <p>LOGO - HOME</p>
-        </NavLink>
-        {questionNum === 0 && 
+        <div>
+            <NavLink to="/">
+                <p>LOGO - HOME</p>
+            </NavLink>
+            {questionNum === 0 && 
             <>
                 <h2>Pick A Spirit</h2>
                 {makeButtons(spirits)}
             </>
-        }
-        {questionNum === 1 && 
-        <>
-            <h2>Pick An Ingredient</h2>
-            {makeButtons(ingredients)}
-        </>
-        }
-        {questionNum === 2 && 
-        <>
-            <h2>Pick A Glass</h2>
-            {makeButtons(glassware)}
-        </>
-        }
-    </div>
+            }
+            {questionNum === 1 && 
+            <>
+                <h2>Pick An Ingredient</h2>
+                {makeButtons(ingredients)}
+            </>
+            }
+            {questionNum === 2 && 
+            <>
+                <h2>Pick A Glass</h2>
+                {makeButtons(glassware)}
+            </>
+            }
+
+            <br></br>
+            <button onClick={() => pickRandom()}>Show Me</button>
+
+            {questionNum === 4 && 
+            <div className='cocktail-view'>
+                <h2>{cocktail.strDrink}</h2>
+                <img className="drink-img" src={cocktail.strDrinkThumb} />
+                <h3>Directions:</h3>
+                <p>{cocktail.strInstructions}</p>
+                <h3>Ingredients:</h3>
+                {/* <ul>
+                    {listIngredients()}
+                </ul> */}
+                <h3>Glassware:</h3>
+                <p>{cocktail.strGlass}</p>
+                <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
+            </div>
+            }      
+        </div>
     );
 }
 
