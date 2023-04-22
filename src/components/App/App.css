@@ -10,7 +10,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
     justify-content: space-around;
 }
 
@@ -19,9 +19,17 @@ main {
     font-size: 5vh;
 }
 
+.big-logo {
+    font-size: 10vh;
+}
+
 .logo-img {
     height: 20vh;
     margin: 0 2vw;
+}
+
+.big-logo-img {
+    height: 35vh;
 }
 
 .no-style {
@@ -51,8 +59,8 @@ p, li {
 }
 
 .big-button {
-    padding: 10px 20px;
-    font-size: 3rem;
+    font-size: 5rem;
+    padding: 20px 30px;
 }
 
 header {

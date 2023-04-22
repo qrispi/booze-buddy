@@ -11,8 +11,8 @@ function App() {
 		<Switch>
 			<Route exact path="/">
 				<section className='home'>
-					<div className='logo'>
-						<h1>Booze</h1> <img className="logo-img gradient-text" src={martiniImg} /> <h1>Buddy</h1>
+					<div className='logo big-logo'>
+						<h1>Booze</h1> <img className="logo-img big-logo-img" src={martiniImg} /> <h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
 						<button className='big-button'>Surprise Me!</button>
