@@ -33,6 +33,7 @@ function Quiz() {
             if (typeof data === 'string' || data instanceof String) {
                 setQuizError(data);
             } else {
+                setQuizError('');
                 filterCocktails(data.drinks);
             }
         });
@@ -58,11 +59,12 @@ function Quiz() {
     const pickRandom = () => {
         if(cocktailResults.length !== 0) {
             const index = Math.floor(Math.random() * cocktailResults.length);
-            const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
+            const promise = getCocktails('lookup.ph?i=' + cocktailResults[index].idDrink);
             promise.then(data => {
                 if (typeof data === 'string' || data instanceof String) {
                     setQuizError(data);
                 } else {
+                    setQuizError('');
                     setCocktail(data.drinks[0]);
                 }
             });
@@ -71,9 +73,10 @@ function Quiz() {
     }
 
     const confirmResult = () => {
-        if(cocktailResults.length !== 0) {
+        if(cocktailResults.length !== 0 && !quizError) {
             return <Cocktail cocktail={cocktail}/>
-        } else {
+        }
+        if (cocktailResults.length === 0 && !quizError) {
             return (
                 <div className='no-result-container'>
                     <h2>Wow you're picky!</h2>
