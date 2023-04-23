@@ -21,26 +21,38 @@ function Quiz() {
         return category.map((item, index) => <button className='quiz-button' data-searches={dictionary[item]} onClick={(event) => fetchSelection(event.target.dataset.searches)} key={index}>{item}</button>);
     }
 
-    const fetchSelection = (selection) => {
-        console.log(selection)
-        // let path;
-        // if(questionNum < 2) {
-        //     path = 'filter.php?i=' + selection;
-        // } else {
-        //     path = 'filter.php?g=' + selection;
-        // }
-        // const promise = getCocktails(path);
-        // promise.then(data => {
-        //     if (typeof data === 'string' || data instanceof String) {
-        //         setQuizError(data);
-        //     } else {
-        //         setQuizError('');
-        //         filterCocktails(data.drinks);
-        //     }
-        // });
+    const fetchSelection = (searches) => {
+        const searchArray = searches.split(',');
+        console.log(searchArray)
+        const allSearchResults = new Array;
+        const allFetches = [];
+        searchArray.forEach(search => {
+            let path;
+            if(questionNum < 2) {
+                path = 'filter.php?i=' + search;
+            } else {
+                path = 'filter.php?g=' + search;
+            }
+            allFetches.push(
+                getCocktails(path)
+                .then(data => {
+                if (typeof data === 'string' || data instanceof String) {
+                    setQuizError(data);
+                } else {
+                    setQuizError('');
+                    console.log("Each Fetch", data.drinks)
+                    allSearchResults.push(data.drinks);
+                }
+            }))
+            })
+        Promise.all(allFetches).then(() => {
+            console.log("Product of fetchSelection", allSearchResults)
+            filterCocktails(allSearchResults.flat());
+        })
     }
 
     const filterCocktails = (cocktails) => {
+        console.log("Argument of filterCocktails", cocktails)
         if(questionNum === 0) {
             setCocktailResults(cocktails);
         } else {
