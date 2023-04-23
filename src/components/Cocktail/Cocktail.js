@@ -1,20 +1,22 @@
 import './Cocktail.css';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import listIngredients from '../../helper-functions';
-import cocktailImg from '../../images/cocktail.png'
+import cocktailImg from '../../images/cocktail.png';
 
 function Cocktail({cocktail, getRandomCocktail}) {
 
   return (
     <>
-        <header>
-            <NavLink className='no-style' to="/">
-                <div className='logo'>
-                    <h1>Booze</h1><img className="logo-img" src={cocktailImg} /><h1>Buddy</h1>
-                </div>
-            </NavLink>
-            <button onClick={getRandomCocktail}>Spin Again!</button>
-        </header>
+        <Route exact path="/cocktail">
+            <header>
+                <NavLink className='no-style' to="/">
+                    <div className='logo'>
+                        <h1>Booze</h1><img className="logo-img" src={cocktailImg} /><h1>Buddy</h1>
+                    </div>
+                </NavLink>
+                <button onClick={getRandomCocktail}>Spin Again!</button>
+            </header>
+        </Route>
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2>{cocktail.strDrink}</h2>
