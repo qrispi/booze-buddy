@@ -1,0 +1,29 @@
+{
+    "drinks": [
+        {
+        "strDrink": "Caipirissima",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/yd47111503565515.jpg",
+        "idDrink": "13206"
+        },
+        {
+        "strDrink": "California Lemonade",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/q5z4841582484168.jpg",
+        "idDrink": "11205"
+        },
+        {
+        "strDrink": "Corn n Oil",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/pk6dwi1592767243.jpg",
+        "idDrink": "17830"
+        },
+        {
+        "strDrink": "Cosmopolitan Martini",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/upxxpq1439907580.jpg",
+        "idDrink": "14133"
+        },
+        {
+        "strDrink": "Cuba Libra",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/ck6d0p1504388696.jpg",
+        "idDrink": "13751"
+        }
+    ]
+}

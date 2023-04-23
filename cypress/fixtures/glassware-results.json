@@ -1,0 +1,34 @@
+{
+    "drinks": [
+        {
+            "strDrink": "Coke and Drops",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/yrtxxp1472719367.jpg",
+            "idDrink": "17108"
+        },
+        {
+            "strDrink": "Corpse Reviver",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/gifgao1513704334.jpg",
+            "idDrink": "17250"
+        },
+        {
+            "strDrink": "Cosmopolitan",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/kpsajh1504368362.jpg",
+            "idDrink": "17196"
+        },
+        {
+            "strDrink": "Cosmopolitan Martini",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/upxxpq1439907580.jpg",
+            "idDrink": "14133"
+        },
+        {
+            "strDrink": "Daiquiri",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/mrz9091589574515.jpg",
+            "idDrink": "11006"
+        },
+        {
+            "strDrink": "Darkwood Sling",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/sxxsyq1472719303.jpg",
+            "idDrink": "14482"
+        }
+    ]
+}
