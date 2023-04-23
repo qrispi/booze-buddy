@@ -1,6 +1,6 @@
 import './Cocktail.css';
 import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import listIngredients from '../../helper-functions';
+import listIngredients from '../../utilities';
 import cocktailImg from '../../images/cocktail.png';
 import PropTypes from 'prop-types';
 
