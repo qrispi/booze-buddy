@@ -15,7 +15,7 @@ function Quiz() {
 
     const spirits = ['Vodka', 'Gin', 'Rum', 'Whiskey', 'Tequila', 'Scotch'];
     const ingredients = ['Lime', 'Lemon', 'Coffee & Cream', 'Orange', 'Carbonation', 'Bitters'];
-    // const glassware = ['Stemmed', 'Stemless'];
+    const glassware = ['Stemmed', 'Stemless'];
 
     const makeButtons = (category) => {
         return category.map((item, index) => <button className='quiz-button' data-searches={dictionary[item]} onClick={(event) => fetchSelection(event.target.dataset.searches)} key={index}>{item}</button>);
@@ -141,7 +141,7 @@ function Quiz() {
                 {questionNum === 2 && 
                 <>
                     <h2>Choose Your Glass</h2>
-                    {/* {makeButtons(glassware)} */}
+                    {makeButtons(glassware)}
                 </>
                 }
                 {questionNum === 3 && 
