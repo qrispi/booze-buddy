@@ -37,7 +37,7 @@ function App() {
 			<Route exact path="/">
 				<section className='home'>
 					<div className='logo big-logo'>
-						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} /><h1>Buddy</h1>
+						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} alt='Cocktail Logo'/><h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
 						<button className='big-button' onClick={getRandomCocktail}>Surprise Me!</button>

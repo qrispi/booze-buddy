@@ -11,7 +11,7 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
             <header>
                 <NavLink className='no-style' to="/">
                     <div className='logo'>
-                        <h1>Booze</h1><img className="logo-img" src={cocktailImg} /><h1>Buddy</h1>
+                        <h1>Booze</h1><img className="logo-img" src={cocktailImg} alt='Cocktail Logo'/><h1>Buddy</h1>
                     </div>
                 </NavLink>
                 <button onClick={() => {
@@ -30,7 +30,7 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2>{cocktail.strDrink}</h2>
-                <img className="drink-img" src={cocktail.strDrinkThumb} />
+                <img className="drink-img" src={cocktail.strDrinkThumb} alt={'Suggested Preparation of' + cocktail.strDrink}/>
             </div>
             <div className='split-container list-container'>
                 <h3>Directions:</h3>
