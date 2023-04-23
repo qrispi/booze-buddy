@@ -33,40 +33,67 @@ const dictionary = {
     'Balloon_Glass', 
     'Coupe_Glass'
     ],
-    ingredients: {
-        "Carbonation": [
-            "Soda_Water",
-            "Tonic_Water",
-            "Ginger_Ale",
-            "Ginger_Beer",
-            "Club_Soda",
-            "Carbonated_Water",
-        ],
-        "Lime": [
-            "Lime_Juice",
-            "Lime",
-        ],
-        "Bitters": [
-            "Bitters",
-            "Orange_Bitters",
-            "Angostura_Bitters",
-        ],
-        "Orange": [
-            "Orange_Juice",
-            "Orange",
-        ],
-        "Lemon": [
-            "Lemon",
-            "Lemon_Juice"
-        ],
-        "Coffee & Cream": [
-            "Coffee",
-            "Light_Cream",
-            "Espresso",
-            "Cream",
-            "Baileys_Irish_Cream",
-        ]
-    }
+    "Vodka": [
+        "Vodka",
+    ],
+    "Rum": [
+        "151_proof_rum",
+        "Light_Rum",
+        "Dark_Rum",
+        "Rum",
+    ],
+    "Whiskey": [
+        "Wild_Turkey",
+        "Southern_Comfort",
+        "Rye_Whiskey",
+        "Irish_Whiskey",
+        "Jack_Daniels",
+        "Crown_Royal",
+        "Bourbon",
+        "Blended_Whiskey",
+    ],
+    "Scotch": [
+        "Scotch",
+        "Johnnie_Walker",
+    ],
+    "Gin": [
+        "Gin",
+    ],
+    "Tequila": [
+        "Tequila"
+    ],
+    "Carbonation": [
+        "Soda_Water",
+        "Tonic_Water",
+        "Ginger_Ale",
+        "Ginger_Beer",
+        "Club_Soda",
+        "Carbonated_Water",
+    ],
+    "Lime": [
+        "Lime_Juice",
+        "Lime",
+    ],
+    "Bitters": [
+        "Bitters",
+        "Orange_Bitters",
+        "Angostura_Bitters",
+    ],
+    "Orange": [
+        "Orange_Juice",
+        "Orange",
+    ],
+    "Lemon": [
+        "Lemon",
+        "Lemon_Juice"
+    ],
+    "Coffee & Cream": [
+        "Coffee",
+        "Light_Cream",
+        "Espresso",
+        "Cream",
+        "Baileys_Irish_Cream",
+    ]
 }
 
 export default dictionary;

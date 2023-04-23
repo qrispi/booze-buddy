@@ -53,12 +53,12 @@ export default Cocktail;
 
 Cocktail.propTypes = {
     cocktail: PropTypes.shape({
-        strDrink: PropTypes.string.isRequired,
-        strDrinkThumb: PropTypes.string.isRequired,
-        strInstructions: PropTypes.string.isRequired,
-        strGlass: PropTypes.string.isRequired
+        strDrink: PropTypes.string,
+        strDrinkThumb: PropTypes.string,
+        strInstructions: PropTypes.string,
+        strGlass: PropTypes.string
     }),
-    getRandomCocktail: PropTypes.func.isRequired,
+    getRandomCocktail: PropTypes.func,
     error: PropTypes.string,
-    clearError: PropTypes.func.isRequired
+    clearError: PropTypes.func
 };

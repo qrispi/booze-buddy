@@ -49,11 +49,3 @@ li {
     text-align: center;
     margin: 20vh 0;
 }
-
-.ingredient {
-    text-transform: capitalize;
-}
-
-.measurement {
-    text-transform: lowercase;
-}
