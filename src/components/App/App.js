@@ -12,7 +12,7 @@ function App() {
 			<Route exact path="/">
 				<section className='home'>
 					<div className='logo big-logo'>
-						<h1>Booze</h1> <img className="logo-img big-logo-img" src={martiniImg} /> <h1>Buddy</h1>
+						<h1>Booze</h1><img className="logo-img big-logo-img" src={martiniImg} /><h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
 						<button className='big-button'>Surprise Me!</button>
@@ -35,6 +35,7 @@ function App() {
 				<Redirect from="*" to="/" />
 			</Route>
 		</Switch>
+		<p className='tagline'>Y o u r C o c k t a i l C o m p a n i o n</p>
 	</main>
   );
 }

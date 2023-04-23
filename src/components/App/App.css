@@ -17,6 +17,7 @@ main {
 .logo {
     display: flex;
     font-size: 5vh;
+    color: white;
 }
 
 .big-logo {
@@ -32,26 +33,45 @@ main {
     height: 35vh;
 }
 
+.tagline {
+    margin-top: 10vh;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 2rem;
+}
+
 .no-style {
     text-decoration: none;
     color: black;
 }
 
-h1, h2, h3, button {
+h1, h2, h3, p, li {
     font-family: 'Bangers', cursive;
+    padding: 0 20px;
+    background: rgb(1,255,143);
+    background: linear-gradient(270deg, rgba(0,160,254,1) 0%, rgba(1,255,143,1) 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 button {
-    border-radius: 5px;
-    border: 3px solid black;
+    font-family: 'Bangers', cursive;
+    border-radius: 10px;
+    border: 3px solid;
     cursor: pointer;
     padding: 10px 20px;
     font-size: 3rem;
+    background: rgb(1,255,143);
+    background: linear-gradient(270deg, rgba(0,160,254,1) 0%, rgba(1,255,143,1) 100%);
+    color: black;
 }
 
 button:hover {
     background-color: black;
-    color: white;
+    color: #F6F6F6;
 }
 
 p, li {

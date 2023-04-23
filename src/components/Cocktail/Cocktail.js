@@ -37,17 +37,17 @@ function Cocktail() {
         </header>
         <div className='cocktail-view'>
             <div className='split-container'>
-                <h2 className='heading'>{cocktail.strDrink}</h2>
+                <h2>{cocktail.strDrink}</h2>
                 <img className="drink-img" src={cocktail.strDrinkThumb} />
             </div>
             <div className='split-container list-container'>
-                <h3 className='heading'>Directions:</h3>
+                <h3>Directions:</h3>
                 <p>{cocktail.strInstructions}</p>
-                <h3 className='heading'>Ingredients:</h3>
+                <h3>Ingredients:</h3>
                 <ul>
                     {listIngredients(cocktail)}
                 </ul>
-                <h3 className='heading'>Glassware:</h3>
+                <h3>Glassware:</h3>
                 <p>{cocktail.strGlass}</p>
             </div>
         </div>
