@@ -4,6 +4,7 @@ import getCocktails from '../../api-calls';
 import { useState } from 'react';
 import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png'
+import Cocktail from '../Cocktail/Cocktail';
 
 function Quiz() {
 
@@ -13,7 +14,7 @@ function Quiz() {
     const [cocktail, setCocktail] = useState({});
 
     const spirits = ['Vodka', 'Gin', 'Rum', 'Bourbon', 'Tequila', 'Scotch'];
-    const ingredients = ['Lime', 'Lemon', 'Coffee', 'Cranberry_juice', 'Orange_juice', 'Grapefruit_juice', 'Bitters', 'Ginger'];
+    const ingredients = ['Lime', 'Lemon', 'Coffee', 'Orange_juice', 'Soda_Water', 'Bitters'];
     const glassware = ['Cocktail_glass', 'Champagne_flute', 'Hurricane_glass', 'Whiskey_sour_glass', 'Highball_glass', 'Shot_glass', 'Collins_glass', 'Martini_glass'];
 
     const makeButtons = (category) => {
@@ -71,12 +72,12 @@ function Quiz() {
         <>
             <header>
                 <NavLink className='no-style' to="/">
-                    <div className='logo'>
+                    <div className='logo logo-hover'>
                         <h1>Booze</h1> <img className="logo-img" src={cocktailImg} /> <h1>Buddy</h1>
                     </div>
                 </NavLink>
                 {questionNum === 4 && 
-                    <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
+                    <button onClick={() => setQuestionNum(0)}>Restart Quiz!</button>
                 }      
             </header>
             <section className='quiz-buttons'>
@@ -88,13 +89,13 @@ function Quiz() {
                 }
                 {questionNum === 1 && 
                 <>
-                    <h2>Pick An Ingredient</h2>
+                    <h2>Pick Your Mixer</h2>
                     {makeButtons(ingredients)}
                 </>
                 }
                 {questionNum === 2 && 
                 <>
-                    <h2>Pick A Glass</h2>
+                    <h2>Pick Your Glass</h2>
                     {makeButtons(glassware)}
                 </>
                 }
@@ -105,19 +106,7 @@ function Quiz() {
                 }
             </section>
             {questionNum === 4 && 
-            <div className='cocktail-view'>
-                <h2>{cocktail.strDrink}</h2>
-                <img className="drink-img" src={cocktail.strDrinkThumb} />
-                <h3>Directions:</h3>
-                <p>{cocktail.strInstructions}</p>
-                <h3>Ingredients:</h3>
-                <ul>
-                    {listIngredients(cocktail)}
-                </ul>
-                <h3>Glassware:</h3>
-                <p>{cocktail.strGlass}</p>
-                <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
-            </div>
+                <Cocktail cocktail={cocktail}/>
             }      
         </>
     );

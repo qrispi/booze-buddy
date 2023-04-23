@@ -3,8 +3,28 @@ import Cocktail from '../Cocktail/Cocktail';
 import Quiz from '../Quiz/Quiz';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import cocktailImg from '../../images/cocktail.png'
+import { useState, useEffect } from 'react';
+import getCocktails from '../../api-calls';
 
 function App() {
+
+	const [cocktail, setCocktail] = useState({});
+	const [error, setError] = useState('');
+
+	const getRandomCocktail = () => {
+		const promise = getCocktails('random.php');
+        promise.then(data => {
+            if (typeof data === 'string' || data instanceof String) {
+                setError(data);
+            } else {
+                setCocktail(data.drinks[0]);
+            }
+        });
+	}
+
+	useEffect(() => {
+		getRandomCocktail();
+	}, [])
 
   return (
 	<main>
@@ -24,7 +44,7 @@ function App() {
 			</Route>
 
 			<Route exact path="/cocktail">
-				<Cocktail />
+				<Cocktail cocktail={cocktail} getRandomCocktail={getRandomCocktail}/>
 			</Route>
 
 			<Route exact path="/quiz">

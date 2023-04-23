@@ -2,7 +2,6 @@
     flex-wrap: wrap;
     width: 80%;
     text-align: center;
-    margin-bottom: 10vh;
 }
 
 .quiz-button {
@@ -10,6 +9,6 @@
 }
 
 .results-button {
-    margin-top: 25vh;
+    margin: 25vh 0;
     font-size: 6rem;
 }
