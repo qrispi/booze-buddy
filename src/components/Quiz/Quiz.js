@@ -4,6 +4,7 @@ import getCocktails from '../../api-calls';
 import { useState } from 'react';
 import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png'
+import Cocktail from '../Cocktail/Cocktail';
 
 function Quiz() {
 
@@ -105,19 +106,7 @@ function Quiz() {
                 }
             </section>
             {questionNum === 4 && 
-            <div className='cocktail-view'>
-                <h2>{cocktail.strDrink}</h2>
-                <img className="drink-img" src={cocktail.strDrinkThumb} />
-                <h3>Directions:</h3>
-                <p>{cocktail.strInstructions}</p>
-                <h3>Ingredients:</h3>
-                <ul>
-                    {listIngredients(cocktail)}
-                </ul>
-                <h3>Glassware:</h3>
-                <p>{cocktail.strGlass}</p>
-                <button onClick={() => setQuestionNum(0)}>Restart Quiz</button>
-            </div>
+                <Cocktail cocktail={cocktail}/>
             }      
         </>
     );
