@@ -1,8 +1,8 @@
 describe('As a user, I should be able to see a random cocktail displayed when I select “Surprise me” on the main page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
     cy.intercept('GET', 'https://www.thecocktaildb.com/api/json/v2/9973533/random.php', {fixture: 'random-cocktail1.json'});
-  })
+    cy.visit('http://localhost:3000/');
+  });
   
   it('should see a "Surprise Me!" button on the landing page', () => {
     cy.get('[href="/cocktail"] > .big-button')
