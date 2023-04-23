@@ -74,7 +74,15 @@ function Quiz() {
         if(cocktailResults.length !== 0) {
             return <Cocktail cocktail={cocktail}/>
         } else {
-            return <h2>Wow you're picky!</h2>
+            return (
+                <div className='no-result-container'>
+                    <h2>Wow you're picky!</h2>
+                    <p className='no-result-message'>We don't have any cocktails that match those selections...</p>
+                    <NavLink to="/cocktail">
+                        <button>Surprise Me!</button>
+                    </NavLink>
+                </div>
+            )
         }
     }
 
