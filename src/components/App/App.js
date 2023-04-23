@@ -12,7 +12,7 @@ function App() {
 	const [error, setError] = useState('');
 
 	const getRandomCocktail = () => {
-		const promise = getCocktails('randm.php');
+		const promise = getCocktails('random.php');
         promise.then(data => {
             if (typeof data === 'string' || data instanceof String) {
                 setError(data);
@@ -20,6 +20,10 @@ function App() {
                 setCocktail(data.drinks[0]);
             }
         });
+	}
+
+	const clearError = () => {
+		setError('');
 	}
 
 	useEffect(() => {
@@ -44,7 +48,7 @@ function App() {
 			</Route>
 
 			<Route exact path="/cocktail">
-				<Cocktail cocktail={cocktail} getRandomCocktail={getRandomCocktail} error={error}/>
+				<Cocktail cocktail={cocktail} getRandomCocktail={getRandomCocktail} error={error} clearError={clearError}/>
 			</Route>
 
 			<Route exact path="/quiz">

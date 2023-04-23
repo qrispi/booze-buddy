@@ -3,7 +3,7 @@ import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png';
 
-function Cocktail({cocktail, getRandomCocktail, error}) {
+function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
 
   return (
     <>
@@ -14,7 +14,10 @@ function Cocktail({cocktail, getRandomCocktail, error}) {
                         <h1>Booze</h1><img className="logo-img" src={cocktailImg} /><h1>Buddy</h1>
                     </div>
                 </NavLink>
-                <button onClick={getRandomCocktail}>Spin Again!</button>
+                <button onClick={() => {
+                    clearError();
+                    getRandomCocktail();
+                }}>Spin Again!</button>
             </header>
         </Route>
         {error && 
