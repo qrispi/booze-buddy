@@ -64,6 +64,7 @@ function Quiz() {
                     setQuizError(data);
                 } else {
                     setQuizError('');
+                    console.log(data.drinks[0]);
                     setCocktail(data.drinks[0]);
                 }
             });

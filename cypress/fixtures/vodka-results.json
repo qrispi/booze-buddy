@@ -1,0 +1,29 @@
+{
+    "drinks": [
+        {
+        "strDrink": "Coffee-Vodka",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/qvrrvu1472667494.jpg",
+        "idDrink": "12800"
+        },
+        {
+        "strDrink": "Cosmopolitan",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/kpsajh1504368362.jpg",
+        "idDrink": "17196"
+        },
+        {
+        "strDrink": "Cosmopolitan Martini",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/upxxpq1439907580.jpg",
+        "idDrink": "14133"
+        },
+        {
+        "strDrink": "Dirty Martini",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/vcyvpq1485083300.jpg",
+        "idDrink": "17181"
+        },
+        {
+        "strDrink": "Espresso Martini",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/n0sx531504372951.jpg",
+        "idDrink": "17212"
+        }
+    ]
+}
