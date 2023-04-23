@@ -23,7 +23,7 @@ describe('As a user, I should be able to answer three questions about my cocktai
         cy.get('[href="/quiz"] > .big-button')
           .click();
         cy.get('h2')
-          .contains('Pick Your Poison');
+          .contains('Choose Your Poison');
         cy.get('.quiz-buttons')
           .get('button')
           .should('have.length', '6')
@@ -37,7 +37,7 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Vodka')
           .click();
         cy.get('h2')
-          .contains('Pick Your Mixer');
+          .contains('Choose Your Mixer');
         cy.get('.quiz-buttons')
           .get('button')
           .should('have.length', '6')
@@ -54,11 +54,11 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Lime')
           .click();
         cy.get('h2')
-          .contains('Pick Your Glass');
+          .contains('Choose Your Glass');
         cy.get('.quiz-buttons')
           .get('button')
-          .should('have.length', '8')
-          .contains('Cocktail_glass');
+          .should('have.length', '2')
+          .contains('Stemmed');
     });
 
     it('should display a button to see my results after clicking an alcohol type, clicking a mixer type and clicking a glass type', () => {
@@ -71,7 +71,7 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Lime')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results');
@@ -87,7 +87,7 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Lime')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results')

@@ -17,7 +17,7 @@ describe('As a user, I should be able to restart the quiz from the quiz page onc
           .contains('Lime')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results')
@@ -26,7 +26,7 @@ describe('As a user, I should be able to restart the quiz from the quiz page onc
           .contains('Restart Quiz!')
           .click();
         cy.get('h2')
-          .contains('Pick Your Poison');
+          .contains('Choose Your Poison');
         cy.get('.quiz-buttons')
           .get('button')
           .should('have.length', '6')
@@ -55,7 +55,7 @@ describe('As a user, I should be able to restart the quiz from the quiz page onc
           .should('not.exist');
 
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('Restart Quiz!')
@@ -74,7 +74,7 @@ describe('As a user, I should be able to restart the quiz from the quiz page onc
           .contains('Restart Quiz!')
           .click();
         cy.get('h2')
-          .contains('Pick Your Poison');
+          .contains('Choose Your Poison');
         cy.get('.quiz-buttons')
           .get('button')
           .should('have.length', '6')
