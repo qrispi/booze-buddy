@@ -3,7 +3,7 @@ import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png';
 
-function Cocktail({cocktail, getRandomCocktail}) {
+function Cocktail({cocktail, getRandomCocktail, error}) {
 
   return (
     <>
@@ -17,6 +17,12 @@ function Cocktail({cocktail, getRandomCocktail}) {
                 <button onClick={getRandomCocktail}>Spin Again!</button>
             </header>
         </Route>
+        {error && 
+        <div className='error-container'>
+            <p>Bummer... We are experiencing server issues right now.</p>
+            <p>Please try again later!</p>
+        </div>
+        }
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2>{cocktail.strDrink}</h2>
