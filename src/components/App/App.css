@@ -34,7 +34,8 @@ main {
 }
 
 .tagline {
-    margin-top: 10vh;
+    margin-top: 20vh;
+    margin-bottom: 3vh;
     font-style: italic;
     font-weight: 100;
     font-size: 2rem;
