@@ -12,7 +12,8 @@ describe('As a user, I should be able to see a random cocktail displayed when I 
   it('should take me to a new page when I click on "Surprise Me!"', () => {
     cy.get('[href="/cocktail"] > .big-button')
       .click();
-    cy.url('http://localhost:3000/cocktail');
+    cy.url()
+      .should('include', '/cocktail');
   });
 
   it('should display a random cocktail after clicking "Surprise Me!"', () => {
