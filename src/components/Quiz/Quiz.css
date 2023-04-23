@@ -12,3 +12,12 @@
     margin: 25vh 0;
     font-size: 6rem;
 }
+
+.no-result-container {
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+.no-result-message {
+    margin-bottom: 8vh;
+}

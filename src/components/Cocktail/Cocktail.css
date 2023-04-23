@@ -44,3 +44,8 @@ ul {
 li {
     margin-bottom: 0.5vh;
 }
+
+.error-container {
+    text-align: center;
+    margin: 20vh 0;
+}

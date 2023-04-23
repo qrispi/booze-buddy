@@ -2,8 +2,9 @@ import './Cocktail.css';
 import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png';
+import PropTypes from 'prop-types';
 
-function Cocktail({cocktail, getRandomCocktail}) {
+function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
 
   return (
     <>
@@ -11,16 +12,26 @@ function Cocktail({cocktail, getRandomCocktail}) {
             <header>
                 <NavLink className='no-style' to="/">
                     <div className='logo'>
-                        <h1>Booze</h1><img className="logo-img" src={cocktailImg} /><h1>Buddy</h1>
+                        <h1>Booze</h1><img className="logo-img" src={cocktailImg} alt='Cocktail Logo'/><h1>Buddy</h1>
                     </div>
                 </NavLink>
-                <button onClick={getRandomCocktail}>Spin Again!</button>
+                <button onClick={() => {
+                    clearError();
+                    getRandomCocktail();
+                }}>Spin Again!</button>
             </header>
         </Route>
+        {error && 
+        <div className='error-container'>
+            <p>Bummer... We are experiencing server issues right now.</p>
+            <p>Please try again later!</p>
+        </div>
+        }
+        {!error && 
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2>{cocktail.strDrink}</h2>
-                <img className="drink-img" src={cocktail.strDrinkThumb} />
+                <img className="drink-img" src={cocktail.strDrinkThumb} alt={'Suggested Preparation of' + cocktail.strDrink}/>
             </div>
             <div className='split-container list-container'>
                 <h3>Directions:</h3>
@@ -33,8 +44,21 @@ function Cocktail({cocktail, getRandomCocktail}) {
                 <p>{cocktail.strGlass}</p>
             </div>
         </div>
+        }
     </>
   );
 }
 
 export default Cocktail;
+
+Cocktail.propTypes = {
+    cocktail: PropTypes.shape({
+        strDrink: PropTypes.string.isRequired,
+        strDrinkThumb: PropTypes.string.isRequired,
+        strInstructions: PropTypes.string.isRequired,
+        strGlass: PropTypes.string.isRequired
+    }),
+    getRandomCocktail: PropTypes.func.isRequired,
+    error: PropTypes.string,
+    clearError: PropTypes.func.isRequired
+};

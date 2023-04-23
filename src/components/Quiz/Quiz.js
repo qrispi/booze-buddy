@@ -2,7 +2,6 @@ import './Quiz.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import getCocktails from '../../api-calls';
 import { useState } from 'react';
-import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png'
 import Cocktail from '../Cocktail/Cocktail';
 
@@ -33,6 +32,7 @@ function Quiz() {
             if (typeof data === 'string' || data instanceof String) {
                 setQuizError(data);
             } else {
+                setQuizError('');
                 filterCocktails(data.drinks);
             }
         });
@@ -56,16 +56,36 @@ function Quiz() {
     }
 
     const pickRandom = () => {
-        const index = Math.floor(Math.random() * cocktailResults.length);
-        const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
-        promise.then(data => {
-            if (typeof data === 'string' || data instanceof String) {
-                setQuizError(data);
-            } else {
-                setCocktail(data.drinks[0]);
-            }
-        });
+        if(cocktailResults.length !== 0) {
+            const index = Math.floor(Math.random() * cocktailResults.length);
+            const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
+            promise.then(data => {
+                if (typeof data === 'string' || data instanceof String) {
+                    setQuizError(data);
+                } else {
+                    setQuizError('');
+                    setCocktail(data.drinks[0]);
+                }
+            });
+        }
         setQuestionNum(questionNum + 1);
+    }
+
+    const confirmResult = () => {
+        if(cocktailResults.length !== 0 && !quizError) {
+            return <Cocktail cocktail={cocktail}/>
+        }
+        if (cocktailResults.length === 0 && !quizError) {
+            return (
+                <div className='no-result-container'>
+                    <h2>Wow you're picky!</h2>
+                    <p className='no-result-message'>We don't have any cocktails that match those selections...</p>
+                    <NavLink to="/cocktail">
+                        <button>Surprise Me!</button>
+                    </NavLink>
+                </div>
+            )
+        }
     }
 
     return (
@@ -73,13 +93,23 @@ function Quiz() {
             <header>
                 <NavLink className='no-style' to="/">
                     <div className='logo logo-hover'>
-                        <h1>Booze</h1> <img className="logo-img" src={cocktailImg} /> <h1>Buddy</h1>
+                        <h1>Booze</h1> <img className="logo-img" src={cocktailImg} alt='Cocktail Logo'/> <h1>Buddy</h1>
                     </div>
                 </NavLink>
                 {questionNum === 4 && 
-                    <button onClick={() => setQuestionNum(0)}>Restart Quiz!</button>
+                    <button onClick={() => {
+                        setQuestionNum(0);
+                        setQuizError('');
+                    }
+                    }>Restart Quiz!</button>
                 }      
             </header>
+            {quizError && 
+                <>
+                    <p>Bummer... We are experiencing server issues right now.</p>
+                    <p>Please try again later!</p>
+                </>
+            }
             <section className='quiz-buttons'>
                 {questionNum === 0 && 
                 <>
@@ -106,7 +136,7 @@ function Quiz() {
                 }
             </section>
             {questionNum === 4 && 
-                <Cocktail cocktail={cocktail}/>
+                confirmResult()
             }      
         </>
     );

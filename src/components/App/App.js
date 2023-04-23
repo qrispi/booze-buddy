@@ -22,8 +22,13 @@ function App() {
         });
 	}
 
+	const clearError = () => {
+		setError('');
+	}
+
 	useEffect(() => {
 		getRandomCocktail();
+		clearError();
 	}, [])
 
   return (
@@ -32,10 +37,10 @@ function App() {
 			<Route exact path="/">
 				<section className='home'>
 					<div className='logo big-logo'>
-						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} /><h1>Buddy</h1>
+						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} alt='Cocktail Logo'/><h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
-						<button className='big-button'>Surprise Me!</button>
+						<button className='big-button' onClick={getRandomCocktail}>Surprise Me!</button>
 					</NavLink>
 					<NavLink to="/quiz">
 						<button className='big-button'>Guide Me!</button>
@@ -44,7 +49,7 @@ function App() {
 			</Route>
 
 			<Route exact path="/cocktail">
-				<Cocktail cocktail={cocktail} getRandomCocktail={getRandomCocktail}/>
+				<Cocktail cocktail={cocktail} getRandomCocktail={getRandomCocktail} error={error} clearError={clearError}/>
 			</Route>
 
 			<Route exact path="/quiz">
