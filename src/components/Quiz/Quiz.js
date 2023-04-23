@@ -56,16 +56,26 @@ function Quiz() {
     }
 
     const pickRandom = () => {
-        const index = Math.floor(Math.random() * cocktailResults.length);
-        const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
-        promise.then(data => {
-            if (typeof data === 'string' || data instanceof String) {
-                setQuizError(data);
-            } else {
-                setCocktail(data.drinks[0]);
-            }
-        });
+        if(cocktailResults.length !== 0) {
+            const index = Math.floor(Math.random() * cocktailResults.length);
+            const promise = getCocktails('lookup.php?i=' + cocktailResults[index].idDrink);
+            promise.then(data => {
+                if (typeof data === 'string' || data instanceof String) {
+                    setQuizError(data);
+                } else {
+                    setCocktail(data.drinks[0]);
+                }
+            });
+        }
         setQuestionNum(questionNum + 1);
+    }
+
+    const confirmResult = () => {
+        if(cocktailResults.length !== 0) {
+            return <Cocktail cocktail={cocktail}/>
+        } else {
+            return <h2>Wow you're picky!</h2>
+        }
     }
 
     return (
@@ -106,7 +116,7 @@ function Quiz() {
                 }
             </section>
             {questionNum === 4 && 
-                <Cocktail cocktail={cocktail}/>
+                confirmResult()
             }      
         </>
     );
