@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { useState, useEffect } from 'react';
 import getCocktails from '../../api-calls';
 import listIngredients from '../../helper-functions';
-import martiniImg from '../../images/martini.png'
+import cocktailImg from '../../images/cocktail.png'
 
 function Cocktail() {
 
@@ -30,7 +30,7 @@ function Cocktail() {
         <header>
             <NavLink className='no-style' to="/">
                 <div className='logo'>
-                    <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+                    <h1>Booze</h1> <img className="logo-img" src={cocktailImg} /> <h1>Buddy</h1>
                 </div>
             </NavLink>
             <button onClick={getRandomCocktail}>Spin Again!</button>

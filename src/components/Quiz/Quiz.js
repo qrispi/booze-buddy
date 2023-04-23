@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import getCocktails from '../../api-calls';
 import { useState } from 'react';
 import listIngredients from '../../helper-functions';
-import martiniImg from '../../images/martini.png'
+import cocktailImg from '../../images/cocktail.png'
 
 function Quiz() {
 
@@ -72,7 +72,7 @@ function Quiz() {
             <header>
                 <NavLink className='no-style' to="/">
                     <div className='logo'>
-                        <h1>Booze</h1> <img className="logo-img" src={martiniImg} /> <h1>Buddy</h1>
+                        <h1>Booze</h1> <img className="logo-img" src={cocktailImg} /> <h1>Buddy</h1>
                     </div>
                 </NavLink>
                 {questionNum === 4 && 

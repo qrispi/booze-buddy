@@ -2,7 +2,7 @@ import './App.css';
 import Cocktail from '../Cocktail/Cocktail';
 import Quiz from '../Quiz/Quiz';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import martiniImg from '../../images/martini.png'
+import cocktailImg from '../../images/cocktail.png'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
 			<Route exact path="/">
 				<section className='home'>
 					<div className='logo big-logo'>
-						<h1>Booze</h1><img className="logo-img big-logo-img" src={martiniImg} /><h1>Buddy</h1>
+						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} /><h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
 						<button className='big-button'>Surprise Me!</button>

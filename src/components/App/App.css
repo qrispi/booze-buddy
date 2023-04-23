@@ -16,7 +16,7 @@ main {
 
 .logo {
     display: flex;
-    font-size: 5vh;
+    font-size: 4vh;
     color: white;
 }
 
@@ -25,8 +25,8 @@ main {
 }
 
 .logo-img {
-    height: 20vh;
-    margin: 0 2vw;
+    height: 15vh;
+    margin: 0 0.5vw;
 }
 
 .big-logo-img {
@@ -84,9 +84,9 @@ p, li {
 }
 
 header {
-    padding: 2vh;
+    padding: 4vh 0;
     display: flex;
-    width: 90%;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
 }
