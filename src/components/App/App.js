@@ -28,6 +28,7 @@ function App() {
 
 	useEffect(() => {
 		getRandomCocktail();
+		clearError();
 	}, [])
 
   return (
@@ -39,7 +40,7 @@ function App() {
 						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} /><h1>Buddy</h1>
 					</div>
 					<NavLink to="/cocktail">
-						<button className='big-button'>Surprise Me!</button>
+						<button className='big-button' onClick={getRandomCocktail}>Surprise Me!</button>
 					</NavLink>
 					<NavLink to="/quiz">
 						<button className='big-button'>Guide Me!</button>

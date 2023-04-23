@@ -26,6 +26,7 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
             <p>Please try again later!</p>
         </div>
         }
+        {!error && 
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2>{cocktail.strDrink}</h2>
@@ -42,6 +43,7 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
                 <p>{cocktail.strGlass}</p>
             </div>
         </div>
+        }
     </>
   );
 }
