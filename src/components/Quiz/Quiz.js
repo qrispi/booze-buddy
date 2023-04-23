@@ -98,6 +98,12 @@ function Quiz() {
                     <button onClick={() => setQuestionNum(0)}>Restart Quiz!</button>
                 }      
             </header>
+            {quizError && 
+                <>
+                    <p>Bummer... We are experiencing server issues right now.</p>
+                    <p>Please try again later!</p>
+                </>
+            }
             <section className='quiz-buttons'>
                 {questionNum === 0 && 
                 <>
