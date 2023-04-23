@@ -1,6 +1,10 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  box-sizing: border-box;
+  height: 100%;
+  background: rgb(103,83,129);
+  background: linear-gradient(270deg, rgba(103,83,129,1) 0%, rgba(65,41,96,1) 100%);
 }

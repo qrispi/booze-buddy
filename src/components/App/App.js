@@ -2,20 +2,25 @@ import './App.css';
 import Cocktail from '../Cocktail/Cocktail';
 import Quiz from '../Quiz/Quiz';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import cocktailImg from '../../images/cocktail.png'
 
 function App() {
 
   return (
-	<div>
+	<main>
 		<Switch>
 			<Route exact path="/">
-				<h1>Booze Buddy</h1>
-				<NavLink to="/cocktail">
-					<button>Surprise Me</button>
-				</NavLink>
-				<NavLink to="/quiz">
-					<button>Guide Me</button>
-				</NavLink>
+				<section className='home'>
+					<div className='logo big-logo'>
+						<h1>Booze</h1><img className="logo-img big-logo-img" src={cocktailImg} /><h1>Buddy</h1>
+					</div>
+					<NavLink to="/cocktail">
+						<button className='big-button'>Surprise Me!</button>
+					</NavLink>
+					<NavLink to="/quiz">
+						<button className='big-button'>Guide Me!</button>
+					</NavLink>
+				</section>
 			</Route>
 
 			<Route exact path="/cocktail">
@@ -27,11 +32,11 @@ function App() {
 			</Route>
 
 			<Route path="*">
-				<h2>ANY PATH</h2>
 				<Redirect from="*" to="/" />
 			</Route>
 		</Switch>
-	</div>
+		<p className='tagline'>Y o u r C o c k t a i l C o m p a n i o n</p>
+	</main>
   );
 }
 
