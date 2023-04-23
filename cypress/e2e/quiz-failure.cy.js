@@ -6,7 +6,7 @@ describe('As a user, I should be able to answer three questions about my cocktai
         cy.intercept('GET', 'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=14133', {fixture: 'full-quiz-cocktail.json'});
         cy.intercept('GET', 'https://www.thecocktaildb.com/api/json/v2/9973533/random.php', {fixture: 'random-cocktail3.json'});
         cy.visit('http://localhost:3000/');
-    })
+    });
 
     it('should display an error message if there are no matches after finishing the quiz', () => {
         cy.get('[href="/quiz"] > .big-button')

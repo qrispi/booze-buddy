@@ -5,7 +5,7 @@ describe('As a user, I should be able to answer three questions about my cocktai
         cy.intercept('GET', 'https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?g=Cocktail_glass', {fixture: 'glassware-results.json'});
         cy.intercept('GET', 'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=14133', {fixture: 'full-quiz-cocktail.json'});
         cy.visit('http://localhost:3000/');
-    })
+    });
     
     it('should see a "Guide Me!" button on the landing page', () => {
         cy.get('[href="/quiz"] > .big-button')
