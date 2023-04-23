@@ -23,8 +23,7 @@ function Quiz() {
 
     const fetchSelection = (searches) => {
         const searchArray = searches.split(',');
-        console.log(searchArray)
-        const allSearchResults = new Array;
+        const allSearchResults = [];
         const allFetches = [];
         searchArray.forEach(search => {
             let path;
@@ -40,19 +39,16 @@ function Quiz() {
                     setQuizError(data);
                 } else {
                     setQuizError('');
-                    console.log("Each Fetch", data.drinks)
                     allSearchResults.push(data.drinks);
                 }
-            }))
-            })
+            }));
+        });
         Promise.all(allFetches).then(() => {
-            console.log("Product of fetchSelection", allSearchResults)
             filterCocktails(allSearchResults.flat());
-        })
+        });
     }
 
     const filterCocktails = (cocktails) => {
-        console.log("Argument of filterCocktails", cocktails)
         if(questionNum === 0) {
             setCocktailResults(cocktails);
         } else {
@@ -78,7 +74,6 @@ function Quiz() {
                     setQuizError(data);
                 } else {
                     setQuizError('');
-                    console.log(data.drinks[0]);
                     setCocktail(data.drinks[0]);
                 }
             });
@@ -99,7 +94,7 @@ function Quiz() {
                         <button>Surprise Me!</button>
                     </NavLink>
                 </div>
-            )
+            );
         }
     }
 
