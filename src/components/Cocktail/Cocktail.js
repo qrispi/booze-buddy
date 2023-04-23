@@ -2,6 +2,7 @@ import './Cocktail.css';
 import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import listIngredients from '../../helper-functions';
 import cocktailImg from '../../images/cocktail.png';
+import PropTypes from 'prop-types';
 
 function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
 
@@ -49,3 +50,15 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
 }
 
 export default Cocktail;
+
+Cocktail.propTypes = {
+    cocktail: PropTypes.shape({
+        strDrink: PropTypes.string.isRequired,
+        strDrinkThumb: PropTypes.string.isRequired,
+        strInstructions: PropTypes.string.isRequired,
+        strGlass: PropTypes.string.isRequired
+    }),
+    getRandomCocktail: PropTypes.func.isRequired,
+    error: PropTypes.string,
+    clearError: PropTypes.func.isRequired
+};
