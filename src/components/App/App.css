@@ -98,6 +98,21 @@ header {
     align-items: center;
 }
 
+@media (min-width: 2000px) {
+    .big-button {
+        font-size: 7rem;
+        padding: 25px 35px;
+    }
+
+    button {
+        font-size: 4rem;
+    }
+
+    .tagline {
+        margin-top: 45vh;
+    }
+}
+
 @media (max-width: 900px) {
     header {
         flex-direction: column;
