@@ -74,16 +74,8 @@ li {
     }
 }
 
-@media (max-width: 900px) {
-    
-}
-
 @media (max-width: 700px) {
     h2 {
         font-size: 4rem;
     }
-}
-
-@media (max-width: 475px) {
-   
 }
