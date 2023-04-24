@@ -98,12 +98,34 @@ header {
     align-items: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     header {
         flex-direction: column;
     }
 
     .tagline {
         font-size: 1rem;
+    }
+
+    .big-logo {
+        font-size: 8vw;
+    }
+
+    .big-logo-img {
+        height: 26vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .big-button {
+        font-size: 4rem;
+        padding: 15px 25px;
+    }
+}
+
+@media (max-width: 475px) {
+    .big-button {
+        font-size: 3rem;
+        padding: 10px 15px;
     }
 }
