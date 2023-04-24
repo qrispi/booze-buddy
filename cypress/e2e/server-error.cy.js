@@ -87,7 +87,23 @@ describe('As a user, I should be informed if there are issues with the server or
             statusCode: 404,
             body: '404 Not Found!',
         });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=178312', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
         cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=178357', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11600', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=16178', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=17196', {
             statusCode: 404,
             body: '404 Not Found!',
         });

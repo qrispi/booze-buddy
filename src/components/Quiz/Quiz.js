@@ -31,9 +31,9 @@ function Quiz() {
         searchArray.forEach(search => {
             let path;
             if(questionNum < 2) {
-                path = 'filter.pp?i=' + search;
+                path = 'filter.php?i=' + search;
             } else {
-                path = 'filter.pp?g=' + search;
+                path = 'filter.php?g=' + search;
             }
             allFetches.push(
                 getCocktails(path)
