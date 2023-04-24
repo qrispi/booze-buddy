@@ -8,3 +8,10 @@ body {
   background: rgb(103,83,129);
   background: linear-gradient(270deg, rgba(103,83,129,1) 0%, rgba(65,41,96,1) 100%);
 }
+
+@media (max-width: 800px) {
+  /* html {
+    font-size: 12px;
+  } */
+  
+}
