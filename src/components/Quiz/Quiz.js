@@ -1,9 +1,10 @@
 import './Quiz.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import getCocktails from '../../api-calls';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import cocktailImg from '../../images/cocktail.png'
 import Cocktail from '../Cocktail/Cocktail';
+import dictionary from '../../Reference-Sheet';
 
 function Quiz() {
 
@@ -12,29 +13,41 @@ function Quiz() {
     const [quizError, setQuizError] = useState('');
     const [cocktail, setCocktail] = useState({});
 
-    const spirits = ['Vodka', 'Gin', 'Rum', 'Bourbon', 'Tequila', 'Scotch'];
-    const ingredients = ['Lime', 'Lemon', 'Coffee', 'Orange_juice', 'Soda_Water', 'Bitters'];
-    const glassware = ['Cocktail_glass', 'Champagne_flute', 'Hurricane_glass', 'Whiskey_sour_glass', 'Highball_glass', 'Shot_glass', 'Collins_glass', 'Martini_glass'];
+    const quizErrorRef= useRef({});
+    quizErrorRef.current = quizError;
+
+    const spirits = ['Vodka', 'Gin', 'Rum', 'Whiskey', 'Tequila', 'Scotch'];
+    const ingredients = ['Lime', 'Lemon', 'Coffee & Cream', 'Orange', 'Carbonation', 'Bitters'];
+    const glassware = ['Stemmed', 'Stemless'];
 
     const makeButtons = (category) => {
-        return category.map((item, index) => <button className='quiz-button' name={item} onClick={(event) => fetchSelection(event.target.name)} key={index}>{item}</button>);
+        return category.map((item, index) => <button className='quiz-button' data-searches={dictionary[item]} onClick={(event) => fetchSelection(event.target.dataset.searches)} key={index}>{item}</button>);
     }
 
-    const fetchSelection = (selection) => {
-        let path;
-        if(questionNum < 2) {
-            path = 'filter.php?i=' + selection;
-        } else {
-            path = 'filter.php?g=' + selection;
-        }
-        const promise = getCocktails(path);
-        promise.then(data => {
-            if (typeof data === 'string' || data instanceof String) {
-                setQuizError(data);
+    const fetchSelection = (searches) => {
+        const searchArray = searches.split(',');
+        const allSearchResults = [];
+        const allFetches = [];
+        searchArray.forEach(search => {
+            let path;
+            if(questionNum < 2) {
+                path = 'filter.php?i=' + search;
             } else {
-                setQuizError('');
-                filterCocktails(data.drinks);
+                path = 'filter.php?g=' + search;
             }
+            allFetches.push(
+                getCocktails(path)
+                .then(data => {
+                if (typeof data === 'string' || data instanceof String) {
+                    setQuizError(data);
+                } else {
+                    setQuizError('');
+                    allSearchResults.push(data.drinks);
+                }
+            }));
+        });
+        Promise.all(allFetches).then(() => {
+            setTimeout(() => filterCocktails(allSearchResults.flat()), 100);
         });
     }
 
@@ -52,7 +65,9 @@ function Quiz() {
             }, []);
             setCocktailResults(filtered);
         }
-        setQuestionNum(questionNum + 1);
+        if(quizErrorRef.current.length === 0) {
+            setQuestionNum(questionNum + 1);
+        }
     }
 
     const pickRandom = () => {
@@ -64,7 +79,6 @@ function Quiz() {
                     setQuizError(data);
                 } else {
                     setQuizError('');
-                    console.log(data.drinks[0]);
                     setCocktail(data.drinks[0]);
                 }
             });
@@ -85,7 +99,7 @@ function Quiz() {
                         <button>Surprise Me!</button>
                     </NavLink>
                 </div>
-            )
+            );
         }
     }
 
@@ -114,19 +128,19 @@ function Quiz() {
             <section className='quiz-buttons'>
                 {questionNum === 0 && 
                 <>
-                    <h2>Pick Your Poison</h2>
+                    <h2>Choose Your Poison</h2>
                     {makeButtons(spirits)}
                 </>
                 }
                 {questionNum === 1 && 
                 <>
-                    <h2>Pick Your Mixer</h2>
+                    <h2>Choose Your Mixer</h2>
                     {makeButtons(ingredients)}
                 </>
                 }
                 {questionNum === 2 && 
                 <>
-                    <h2>Pick Your Glass</h2>
+                    <h2>Choose Your Glass</h2>
                     {makeButtons(glassware)}
                 </>
                 }

@@ -72,14 +72,14 @@ describe('As a user, I should be informed if there are issues with the server or
           .contains('Lime')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('p')
           .contains('Bummer... We are experiencing server issues right now.');
         cy.get('p')
           .contains('Please try again later!');
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass');
+          .contains('Stemmed');
     });
 
     it('should display an error message and not let the user proceed if there is an issue with fetching after completing the quiz', () => {
@@ -87,7 +87,23 @@ describe('As a user, I should be informed if there are issues with the server or
             statusCode: 404,
             body: '404 Not Found!',
         });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=178312', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
         cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=178357', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11600', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=16178', {
+            statusCode: 404,
+            body: '404 Not Found!',
+        });
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=17196', {
             statusCode: 404,
             body: '404 Not Found!',
         });
@@ -101,7 +117,7 @@ describe('As a user, I should be informed if there are issues with the server or
           .contains('Lime')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results')

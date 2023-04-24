@@ -15,10 +15,10 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Gin')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Coffee')
+          .contains('Coffee & Cream')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results')
@@ -36,10 +36,10 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Gin')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Coffee')
+          .contains('Coffee & Cream')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results')
@@ -55,10 +55,10 @@ describe('As a user, I should be able to answer three questions about my cocktai
           .contains('Gin')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Coffee')
+          .contains('Coffee & Cream')
           .click();
         cy.get('.quiz-buttons')
-          .contains('Cocktail_glass')
+          .contains('Stemmed')
           .click();
         cy.get('button')
           .contains('See Results')
