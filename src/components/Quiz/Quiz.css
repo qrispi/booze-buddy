@@ -21,3 +21,21 @@
 .no-result-message {
     margin-bottom: 8vh;
 }
+
+@media (min-width: 2000px) {
+    .quiz-buttons {
+        width: 50%;
+    }
+}
+
+@media (max-width: 700px) {
+    .results-button {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 475px) {
+    .results-button {
+        font-size: 3rem;
+    }
+}

@@ -97,3 +97,62 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
+@media (min-width: 2000px) {
+    .big-button {
+        font-size: 7rem;
+        padding: 25px 35px;
+    }
+
+    button {
+        font-size: 4rem;
+    }
+
+    .tagline {
+        margin-top: 45vh;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .big-logo {
+        font-size: 8vw;
+    }
+
+    .big-logo-img {
+        height: 26vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .big-button {
+        font-size: 4rem;
+        padding: 15px 25px;
+    }
+
+    button {
+        font-size: 2rem;
+    }
+
+    .logo {
+        font-size: 6vw;
+    }
+    
+    .logo-img {
+        height: 26vw;
+    }
+}
+
+@media (max-width: 475px) {
+    .big-button {
+        font-size: 3rem;
+        padding: 10px 15px;
+    }
+}
