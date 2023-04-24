@@ -1,7 +1,7 @@
 import './Quiz.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import getCocktails from '../../api-calls';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import cocktailImg from '../../images/cocktail.png'
 import Cocktail from '../Cocktail/Cocktail';
 import dictionary from '../../Reference-Sheet';
@@ -12,6 +12,9 @@ function Quiz() {
     const [questionNum, setQuestionNum] = useState(0);
     const [quizError, setQuizError] = useState('');
     const [cocktail, setCocktail] = useState({});
+
+    const quizErrorRef= useRef({});
+    quizErrorRef.current = quizError;
 
     const spirits = ['Vodka', 'Gin', 'Rum', 'Whiskey', 'Tequila', 'Scotch'];
     const ingredients = ['Lime', 'Lemon', 'Coffee & Cream', 'Orange', 'Carbonation', 'Bitters'];
@@ -28,9 +31,9 @@ function Quiz() {
         searchArray.forEach(search => {
             let path;
             if(questionNum < 2) {
-                path = 'filter.php?i=' + search;
+                path = 'filter.pp?i=' + search;
             } else {
-                path = 'filter.php?g=' + search;
+                path = 'filter.pp?g=' + search;
             }
             allFetches.push(
                 getCocktails(path)
@@ -44,7 +47,7 @@ function Quiz() {
             }));
         });
         Promise.all(allFetches).then(() => {
-            filterCocktails(allSearchResults.flat());
+            setTimeout(() => filterCocktails(allSearchResults.flat()), 100);
         });
     }
 
@@ -62,7 +65,9 @@ function Quiz() {
             }, []);
             setCocktailResults(filtered);
         }
-        setQuestionNum(questionNum + 1);
+        if(quizErrorRef.current.length === 0) {
+            setQuestionNum(questionNum + 1);
+        }
     }
 
     const pickRandom = () => {
