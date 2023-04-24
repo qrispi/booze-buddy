@@ -19,7 +19,15 @@ I utilized Create React App to build the application with functional components 
 ## Preview of App:
 [//]: <>
 
+[Deployed Site](https://booze-buddy.vercel.app/)
 
+### Demo of 'Surprise Me' Random Cocktail Generator
+
+![random-demo-optimized](https://user-images.githubusercontent.com/24902544/233884422-b1c063b0-1328-49e0-ad45-98dc5fddc327.gif)
+
+### Demo of 'Guide Me' Cocktail Quiz
+
+![quiz-demo-optimized](https://user-images.githubusercontent.com/24902544/233884524-1ebfdf24-1063-4718-88b7-7cdf66b6ed40.gif)
 
 ## Context:
 [//]: <> 
