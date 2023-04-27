@@ -25,6 +25,7 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
                     <button onClick={() => {
                         clearError();
                         getRandomCocktail();
+                        setLoaded(false);
                     }}>Spin Again!</button>
                 </header>
             </Route>
