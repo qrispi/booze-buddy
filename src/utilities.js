@@ -5,9 +5,9 @@ const formatIngredients = (cocktail) => {
     return ingredientKeys.reduce((acc, key, index) => {
         if(!/\s+$/.test(cocktail[measureKeys[index]]) && cocktail[measureKeys[index]]) {
             acc.push(cocktail[measureKeys[index]] + " " + cocktail[key]);
-        } else if (cocktail[measureKeys[index]]) {
+        } else if (cocktail[measureKeys[index]] && cocktail[measureKeys[index]] !== '\n') {
             acc.push(cocktail[measureKeys[index]] + cocktail[key]);
-        } else {
+        } else if (cocktail[key]) {
             acc.push(cocktail[key]);
         }
         return acc;
