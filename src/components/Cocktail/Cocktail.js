@@ -31,7 +31,7 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
         </div>
         }
         {!loaded &&
-        <h5>IT aint loaded yet</h5>  
+            <img className="shaker-gif" src={require("../../images/shaker.gif")} alt="Shaking up a new cocktail!" /> 
         }
         {!error && loaded &&
         <div className='cocktail-view'>
