@@ -3,8 +3,11 @@ import { NavLink, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import listIngredients from '../../utilities';
 import cocktailImg from '../../images/cocktail.png';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
+   
+    const [loaded, setLoaded] = useState(false);
 
   return (
     <>
@@ -27,7 +30,10 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
             <p>Please try again later!</p>
         </div>
         }
-        {!error && 
+        {!loaded &&
+        <h5>IT aint loaded yet</h5>  
+        }
+        {!error && loaded &&
         <div className='cocktail-view'>
             <div className='split-container'>
                 <h2>{cocktail.strDrink}</h2>
