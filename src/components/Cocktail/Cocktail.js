@@ -7,11 +7,11 @@ import { useState, useEffect } from 'react';
 
 function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
    
-    const [loaded, setLoaded] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setLoaded(true), 500)
-    }, [loaded])
+        setTimeout(() => setLoading(false), 500)
+    }, [loading])
 
     return (
         <>
@@ -22,10 +22,12 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
                             <h1>Booze</h1><img className="logo-img" src={cocktailImg} alt='Cocktail Logo'/><h1>Buddy</h1>
                         </div>
                     </NavLink>
-                    <button onClick={() => {
-                        clearError();
-                        getRandomCocktail();
-                        setLoaded(false);
+                    <button 
+                        disabled={loading}
+                        onClick={() => {
+                            clearError();
+                            getRandomCocktail();
+                            setLoading(true);
                     }}>Spin Again!</button>
                 </header>
             </Route>
@@ -35,10 +37,10 @@ function Cocktail({cocktail, getRandomCocktail, error, clearError}) {
                 <p>Please try again later!</p>
             </div>
             }
-            {!loaded &&
+            {loading &&
                 <img className="shaker-gif" src={require("../../images/shaker.gif")} alt="Shaking up a new cocktail!" /> 
             }
-            {!error && loaded &&
+            {!error && !loading &&
             <div className='cocktail-view'>
                 <div className='split-container'>
                     <h2>{cocktail.strDrink}</h2>
