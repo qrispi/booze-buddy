@@ -19,7 +19,7 @@ I utilized Create React App to build the application with functional components 
 ## Preview of App:
 [//]: <>
 
-[Deployed Site](https://booze-buddy.vercel.app/)
+### [Deployed Site](https://booze-buddy.vercel.app/)
 
 ### Demo of 'Surprise Me' Random Cocktail Generator
 
